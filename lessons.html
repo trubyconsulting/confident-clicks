@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Lessons — Confident Clicks</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F2F4F1;
+    --bg-panel: #FFFFFF;
+    --ink: #26312E;
+    --ink-soft: #4B5750;
+    --teal: #2F6D63;
+    --teal-dark: #234F48;
+    --amber: #D98E3B;
+    --line: #D8DED8;
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Public Sans', sans-serif;
+    font-size: 19px;
+    line-height: 1.65;
+  }
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:600; line-height:1.25; }
+  a{ color: var(--teal-dark); }
+  .wrap{ max-width: 760px; margin:0 auto; padding: 0 24px; }
+
+  header{ padding: 24px 0; border-bottom: 1px solid var(--line); background: var(--bg-panel); position: sticky; top:0; z-index:5;}
+  header .wrap{ display:flex; align-items:center; justify-content:space-between; max-width: 900px; }
+  .brand{ font-family:'Fraunces', serif; font-weight:600; font-size:21px; }
+  header a.back{ font-weight:600; text-decoration:none; font-size:16px; }
+
+  .intro{ padding: 34px 0 10px; }
+  .intro h1{ font-size: 32px; margin:0 0 10px; }
+  .intro p{ color: var(--ink-soft); margin:0; }
+
+  nav.toc{
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin: 24px 0 40px;
+  }
+  nav.toc h2{ font-size:19px; margin:0 0 12px; }
+  nav.toc ol{ margin:0; padding-left: 22px; }
+  nav.toc li{ margin-bottom: 8px; }
+  nav.toc a{ text-decoration:none; font-weight:600; }
+  nav.toc a:hover{ text-decoration:underline; }
+  nav.toc .starter-link{ margin: 0 0 14px; padding-bottom:14px; border-bottom: 1px solid var(--line); }
+  nav.toc .starter-link a{ font-size: 18px; }
+
+  .lesson{
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 30px 30px 34px;
+    margin-bottom: 30px;
+    scroll-margin-top: 90px;
+  }
+  .lesson.starter{
+    border: 2px solid var(--amber);
+  }
+  .lesson-eyebrow{
+    color: var(--teal-dark);
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0 0 6px;
+  }
+  .starter .lesson-eyebrow{ color: #8A5A1E; }
+  .lesson h2{ font-size: 27px; margin: 0 0 14px; }
+  .lesson h3{ font-size: 19px; margin: 26px 0 10px; color: var(--teal-dark); }
+  .lesson p{ margin: 0 0 14px; }
+  .lesson ol, .lesson ul{ padding-left: 24px; margin: 0 0 16px; }
+  .lesson li{ margin-bottom: 10px; }
+  .tip{
+    background: #EFF6F3;
+    border-left: 4px solid var(--teal);
+    padding: 14px 18px;
+    border-radius: 0 10px 10px 0;
+    margin: 18px 0;
+  }
+  .tip strong{ color: var(--teal-dark); }
+  .warning{
+    background: #FBF1E6;
+    border-left: 4px solid var(--amber);
+    padding: 14px 18px;
+    border-radius: 0 10px 10px 0;
+    margin: 18px 0;
+  }
+  .warning strong{ color: #8A5A1E; }
+  .device-block{
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 14px 0;
+  }
+  .device-block h4{
+    margin: 0 0 8px;
+    font-size: 16px;
+    text-transform: none;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  /* Video embed */
+  .video-wrap{
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 */
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    margin: 6px 0 20px;
+  }
+  .video-wrap iframe{
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    border: 0;
+  }
+  .video-caption{
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin: -10px 0 20px;
+  }
+
+  .back-to-top{
+    display:inline-block;
+    margin-top: 6px;
+    font-size: 15px;
+    text-decoration: none;
+    color: var(--ink-soft);
+  }
+  footer{ padding: 20px 0 60px; color: var(--ink-soft); font-size:15px; text-align:center; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">Confident Clicks</div>
+    <a class="back" href="welcome.html">&larr; Back to Welcome Page</a>
+  </div>
+</header>
+
+<div class="wrap" id="top">
+
+  <div class="intro">
+    <h1>Your Lessons</h1>
+    <p>Never opened a computer before? Start with the lesson below before Lesson 1. Otherwise, work through the numbered lessons in order, or jump to whichever one you need today. There's no clock running.</p>
+  </div>
+
+  <nav class="toc" aria-label="Table of contents">
+    <h2>Jump to a lesson</h2>
+    <div class="starter-link">
+      <a href="#lesson-0">Start Here: Turning On Your Computer for the Very First Time</a>
+    </div>
+    <ol>
+      <li><a href="#lesson-1">Getting comfortable with your mouse and keyboard</a></li>
+      <li><a href="#lesson-2">Email made easy</a></li>
+      <li><a href="#lesson-3">Video calling your family</a></li>
+      <li><a href="#lesson-4">Spotting and avoiding online scams</a></li>
+      <li><a href="#lesson-5">Safe, easy web browsing</a></li>
+      <li><a href="#lesson-6">Your smartphone or tablet, explained</a></li>
+      <li><a href="#lesson-7">Keeping your photos and files safe</a></li>
+      <li><a href="#lesson-8">Getting help when something goes wrong</a></li>
+    </ol>
+  </nav>
+
+  <!-- LESSON 0 (STARTER) -->
+  <section class="lesson starter" id="lesson-0">
+    <p class="lesson-eyebrow">Start Here</p>
+    <h2>Turning on your computer for the very first time</h2>
+    <p>If you've genuinely never opened a computer before, welcome — this lesson is just for you. There is no such thing as a silly question here. Everyone who is comfortable with computers today started exactly where you are right now.</p>
+
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/z4wjFP7PF_w" title="Computer Basics for Beginners and Seniors" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="video-caption">Watch this first — a gentle walkthrough of what a computer is and its main parts.</p>
+
+    <h3>What you're looking at</h3>
+    <ul>
+      <li><strong>The screen (or monitor)</strong> — this is where everything you do shows up.</li>
+      <li><strong>The keyboard</strong> — the flat panel of letters and numbers you press to type.</li>
+      <li><strong>The mouse or trackpad</strong> — this moves the little arrow (called a <strong>cursor</strong>) around your screen. A trackpad is the flat, touch-sensitive pad found on laptops, just below the keyboard.</li>
+      <li><strong>The tower or laptop body</strong> — the "brain" of the computer. On a laptop, this is built into the same case as the keyboard.</li>
+    </ul>
+
+    <h3>Turning it on</h3>
+    <ol>
+      <li>Look for a button with a small circle-and-line symbol (⏻) — this is the <strong>power button</strong>. On a desktop, it's usually on the front of the tower. On a laptop, it's usually above the keyboard or on the side.</li>
+      <li>Press it once, briefly, and let go.</li>
+      <li>Wait. Computers take anywhere from 20 seconds to a couple of minutes to fully start — this is completely normal. You'll see a logo, then eventually your <strong>desktop</strong> (your computer's main screen).</li>
+      <li>If a box appears asking for a <strong>password</strong>, type the password you (or whoever set up the computer) chose, then press the <strong>Enter</strong> key.</li>
+    </ol>
+
+    <div class="tip"><strong>Tip:</strong> If nothing happens when you press the power button, make sure the computer is plugged into a working outlet, and on a laptop, that it has enough battery charge.</div>
+
+    <h3>What you'll see on the desktop</h3>
+    <p>Once it's started, you'll see small pictures called <strong>icons</strong> — each one opens a different program when you click on it twice quickly (see Lesson 1 for exact clicking practice). You'll also usually see a bar along the bottom or top of the screen — this is called the <strong>taskbar</strong> (Windows) or <strong>dock</strong> (Mac), and it's another way to open your most-used programs.</p>
+
+    <h3>Turning it off safely</h3>
+    <p>Always shut down properly rather than just walking away — it protects your computer and saves your work.</p>
+    <div class="device-block">
+      <h4>Windows computer</h4>
+      <p style="margin:0;">Click the <strong>Start</strong> button (bottom-left corner, often a Windows logo), then click the power icon, then click <strong>Shut down</strong>.</p>
+    </div>
+    <div class="device-block">
+      <h4>Mac computer</h4>
+      <p style="margin:0;">Click the apple icon in the top-left corner of the screen, then click <strong>Shut Down</strong>.</p>
+    </div>
+
+    <p>Once you feel okay with turning your computer on and off, move on to Lesson 1 below.</p>
+
+    <a class="back-to-top" href="#top">&uarr; Back to lesson list</a>
+  </section>
+
+  <!-- LESSON 1 -->
+  <section class="lesson" id="lesson-1">
+    <p class="lesson-eyebrow">Lesson 1</p>
+    <h2>Getting comfortable with your mouse and keyboard</h2>
+    <p>Before anything else, you need to feel steady with the two tools you'll use for everything: the mouse (or trackpad) and the keyboard. Take your time here — this lesson alone can make every other lesson easier.</p>
+
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/Ipo9PP44YS0" title="Computer lessons for seniors: using your mouse" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="video-caption">A slow, patient walkthrough of using a mouse, made for beginners.</p>
+
+    <h3>The mouse: four moves to practice</h3>
+    <ol>
+      <li><strong>Point.</strong> Move the mouse slowly across your desk. Watch the arrow on the screen follow it. Practice pointing the arrow at different things on the screen.</li>
+      <li><strong>Click.</strong> Press the left button once, quickly, then let go. This selects or opens something. Try clicking on an empty part of your screen right now.</li>
+      <li><strong>Double-click.</strong> Press the left button twice, quickly, in the same spot. This usually opens something, like a program. If nothing happens, you probably clicked too slowly — try again a little faster.</li>
+      <li><strong>Scroll.</strong> If your mouse has a small wheel between the buttons, roll it up or down to move a page up or down. On a trackpad, slide two fingers up or down instead.</li>
+    </ol>
+
+    <div class="tip"><strong>Tip:</strong> If the arrow moves too fast or too slow for your liking, you can adjust its speed in your computer's settings. Ask in Lesson 8 how to find that if you'd like help.</div>
+
+    <h3>The keyboard: keys you'll use constantly</h3>
+    <ul>
+      <li><strong>Shift</strong> — hold this down while pressing a letter to make it a capital letter.</li>
+      <li><strong>Space bar</strong> — the long bar at the bottom. Adds a space between words.</li>
+      <li><strong>Backspace (or Delete)</strong> — usually top-right of the keyboard. Erases the letter just before your cursor.</li>
+      <li><strong>Enter (or Return)</strong> — moves to a new line, or confirms something you've typed, like a search.</li>
+    </ul>
+
+    <div class="device-block">
+      <h4>Try this now</h4>
+      <p style="margin:0;">Open any program that lets you type (like Notes, WordPad, or a blank email). Type your first name. Press Backspace a few times to erase it. Type it again, holding Shift for the first letter so it's capitalized correctly. This one exercise uses almost everything above.</p>
+    </div>
+
+    <a class="back-to-top" href="#top">&uarr; Back to lesson list</a>
+  </section>
+
+  <!-- LESSON 2 -->
+  <section class="lesson" id="lesson-2">
+    <p class="lesson-eyebrow">Lesson 2</p>
+    <h2>Email made easy</h2>
+    <p>Email is like a mailbox that lives inside your computer or phone. This lesson covers the basics: reading a message, writing one, and keeping things tidy.</p>
+
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/WxmcL56m17A" title="Introduction to Gmail for Seniors" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="video-caption">A friendly introduction to Gmail, built specifically for seniors.</p>
+
+    <h3>Reading an email</h3>
+    <ol>
+      <li>Open your email program (common ones are Gmail, Outlook, or Yahoo Mail) or the Mail app on your phone.</li>
+      <li>You'll see a list of messages. Unread ones are usually shown in bold text.</li>
+      <li>Click or tap on a message once to open and read it.</li>
+    </ol>
+
+    <h3>Writing a new email</h3>
+    <ol>
+      <li>Look for a button that says <strong>Compose</strong> or <strong>New Message</strong>, often with a pencil icon. Click or tap it.</li>
+      <li>In the <strong>To</strong> box, type the email address of the person you're writing to.</li>
+      <li>In the <strong>Subject</strong> box, type a short summary of what the email is about, like "Dinner on Sunday?"</li>
+      <li>Click in the large blank area below and type your message.</li>
+      <li>Click or tap the <strong>Send</strong> button, usually blue, often shaped like a paper airplane or simply labeled "Send."</li>
+    </ol>
+
+    <div class="tip"><strong>Tip:</strong> If you're not sure you typed someone's email address correctly, send yourself a test message first by putting your own email address in the "To" box.</div>
+
+    <h3>Replying to someone</h3>
+    <ol>
+      <li>Open the message you want to reply to.</li>
+      <li>Look for a button labeled <strong>Reply</strong> (a left-pointing arrow).</li>
+      <li>Type your response above the original message, then click <strong>Send</strong>.</li>
+    </ol>
+
+    <h3>Keeping your inbox tidy</h3>
+    <p>You don't need to organize everything perfectly. Two habits go a long way:</p>
+    <ul>
+      <li><strong>Delete</strong> anything you don't need using the trash can icon.</li>
+      <li><strong>Search</strong> instead of scrolling — type a name or word into the search bar at the top to instantly find an old email.</li>
+    </ul>
+
+    <a class="back-to-top" href="#top">&uarr; Back to lesson list</a>
+  </section>
+
+  <!-- LESSON 3 -->
+  <section class="lesson" id="lesson-3">
+    <p class="lesson-eyebrow">Lesson 3</p>
+    <h2>Video calling your family</h2>
+    <p>Seeing a loved one's face on a screen, live, is one of the most rewarding things a computer or phone can do. Here's how to get started with the most common apps.</p>
+
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/jUMlWSOfbE8" title="How to Use Zoom for Seniors" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="video-caption">A step-by-step Zoom walkthrough made for seniors.</p>
+
+    <h3>Before you start</h3>
+    <p>Ask your family member which app they use most — it's usually one of these. You don't need to learn all of them, just the one they already have.</p>
+
+    <div class="device-block">
+      <h4>FaceTime (iPhone, iPad, or Mac only)</h4>
+      <p style="margin:0 0 10px;">FaceTime comes already installed — nothing to download.</p>
+      <ol style="margin:0;">
+        <li>Open the FaceTime app (a green icon with a white video camera).</li>
+        <li>Tap the <strong>+</strong> button or the search bar.</li>
+        <li>Type the person's name or phone number.</li>
+        <li>Tap the video camera icon to start the call.</li>
+      </ol>
+    </div>
+
+    <div class="device-block">
+      <h4>WhatsApp (works on any smartphone, including Android)</h4>
+      <ol style="margin:0;">
+        <li>Download WhatsApp from the App Store (iPhone) or Play Store (Android) if you don't have it yet.</li>
+        <li>Open the app and find your family member in your contacts list.</li>
+        <li>Tap on their name to open the chat.</li>
+        <li>Tap the small video camera icon at the top of the screen.</li>
+      </ol>
+    </div>
+
+    <div class="device-block">
+      <h4>Google Meet or Google Duo (Android's built-in option)</h4>
+      <p style="margin:0 0 10px;">Most Android phones already have Google Meet installed. It's a great choice if your family also uses Android or a mix of devices.</p>
+      <ol style="margin:0;">
+        <li>Open the Google Meet app, or open your web browser and go to <strong>meet.google.com</strong>.</li>
+        <li>Tap <strong>New meeting</strong> to start your own call.</li>
+        <li>Share the link it gives you with your family member by text or email so they can join.</li>
+        <li>To join a call someone sent you, simply tap the link they shared.</li>
+      </ol>
+    </div>
+
+    <div class="device-block">
+      <h4>Zoom (works on computers, tablets, and phones — Android included)</h4>
+      <ol style="margin:0;">
+        <li>If a family member sends you a "Zoom link," simply click or tap it at the time of the call.</li>
+        <li>Your device may ask to download the Zoom app the first time — allow this.</li>
+        <li>Tap <strong>Join with Video</strong> when prompted.</li>
+      </ol>
+    </div>
+
+    <div class="tip"><strong>Tip:</strong> The first call is always the hardest. Ask your family member to call you first, so you just have to tap "Accept" rather than start the call yourself.</div>
+
+    <a class="back-to-top" href="#top">&uarr; Back to lesson list</a>
+  </section>
+
+  <!-- LESSON 4 -->
+  <section class="lesson" id="lesson-4">
+    <p class="lesson-eyebrow">Lesson 4</p>
+    <h2>Spotting and avoiding online scams</h2>
+    <p>This is one of the most important lessons in the whole course. Scammers specifically target people by pretending to be trustworthy. Once you know the patterns, they become much easier to spot.</p>
+
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/DYI9v8udoYI" title="Scam Alert: How to Protect Older Adults from Fraud" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="video-caption">An overview of the most common scams targeting older adults and how to spot them.</p>
+
+    <h3>The biggest warning signs</h3>
+    <ul>
+      <li><strong>Urgency.</strong> "Act now or your account will be closed." Real companies rarely demand instant action.</li>
+      <li><strong>Requests for gift cards.</strong> No real company, government agency, or family member in an emergency will ever ask to be paid in gift cards.</li>
+      <li><strong>Unexpected prizes.</strong> "You've won a prize!" when you didn't enter anything is almost always fake.</li>
+      <li><strong>Strange links or attachments</strong> from someone you weren't expecting to hear from.</li>
+      <li><strong>Requests for your password, Social Security number, or bank details</strong> by email or text. Real banks and government agencies do not ask for these this way.</li>
+    </ul>
+
+    <div class="warning"><strong>Golden rule:</strong> If a message makes you feel scared, rushed, or too excited to think clearly, stop. That feeling is the scam working. Walk away, wait ten minutes, and check with a trusted person before responding.</div>
+
+    <h3>Simple habits that protect you</h3>
+    <ol>
+      <li>Never click a link in an email or text unless you're sure who sent it. If a "bank" emails you, open your browser and type the bank's website address yourself instead of clicking the link.</li>
+      <li>Hang up on any unexpected call claiming to be tech support, the IRS, or a grandchild in trouble. Call back using a number you already know is real.</li>
+      <li>Never give a stranger remote access to your computer, even if they say they're "fixing a virus."</li>
+      <li>When in doubt, ask a family member or call the company directly using the number on their real website — not a number given to you in the suspicious message.</li>
+    </ol>
+
+    <a class="back-to-top" href="#top">&uarr; Back to lesson list</a>
+  </section>
+
+  <!-- LESSON 5 -->
+  <section class="lesson" id="lesson-5">
+    <p class="lesson-eyebrow">Lesson 5</p>
+    <h2>Safe, easy web browsing</h2>
+    <p>The internet is simply millions of pages you can visit using a program called a <strong>browser</strong> (common ones: Chrome, Safari, Edge, Firefox).</p>
+
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/0OOe18OzSFc" title="Web Browser Basics for Beginners and Seniors" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="video-caption">Covers the address bar, tabs, and bookmarks — the essentials of browsing.</p>
+
+    <h3>Searching for something</h3>
+    <ol>
+      <li>Open your browser.</li>
+      <li>Click the long bar at the top of the window (the address bar).</li>
+      <li>Type what you're looking for in plain words, like "weather in Roseburg Oregon," and press Enter.</li>
+      <li>Click any of the blue links in the results list to visit that page.</li>
+    </ol>
+
+    <h3>How to tell if a website looks trustworthy</h3>
+    <ul>
+      <li>Look for a small padlock icon next to the website address — it means the connection is secure.</li>
+      <li>Be cautious of sites with excessive pop-ups, flashing ads, or urgent warnings about your computer being "infected."</li>
+      <li>Stick to well-known, established websites when shopping or entering personal information.</li>
+    </ul>
+
+    <div class="tip"><strong>Tip:</strong> If a pop-up ever says "Your computer has a virus, call this number," it is fake. Close the browser entirely (or restart your computer) rather than calling any number shown.</div>
+
+    <h3>Opening and closing tabs</h3>
+    <p>A "tab" lets you have more than one page open at once, like having several books open to different pages.</p>
+    <ul>
+      <li>To open a new tab, click the small <strong>+</strong> near the top of your browser window.</li>
+      <li>To close a tab, click the small <strong>x</strong> on that tab.</li>
+    </ul>
+
+    <a class="back-to-top" href="#top">&uarr; Back to lesson list</a>
+  </section>
+
+  <!-- LESSON 6 -->
+  <section class="lesson" id="lesson-6">
+    <p class="lesson-eyebrow">Lesson 6</p>
+    <h2>Your smartphone or tablet, explained</h2>
+    <p>Smartphones and tablets work through small programs called <strong>apps</strong>, each shown as an icon on your home screen.</p>
+
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/vhQfivhrhLM" title="Android Phone Basics for Seniors and Beginners" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="video-caption">An Android-focused class covering the basics of your phone, made for seniors.</p>
+
+    <h3>The basics</h3>
+    <ul>
+      <li><strong>Tap</strong> an icon once to open that app.</li>
+      <li><strong>Swipe</strong> (slide your finger across the screen) to move between screens or scroll through a page.</li>
+      <li><strong>Pinch</strong> two fingers together or apart on the screen to zoom out or in on a photo or webpage.</li>
+      <li><strong>Going back:</strong> on an iPhone, swiping up from the bottom edge (or pressing the Home button on older models) takes you to your main screen. On most Android phones, look for a small arrow or bar at the bottom of the screen — tapping it takes you back one screen, and swiping up takes you home.</li>
+    </ul>
+
+    <div class="device-block">
+      <h4>A note for Android users</h4>
+      <p style="margin:0;">Android phones vary more by brand (Samsung, Google Pixel, Motorola, and others) than iPhones do, so your exact buttons and menus may look slightly different from a video or from a friend's phone. Don't worry — the ideas are the same everywhere: tapping opens things, swiping moves you around, and the Settings app (usually a gray gear icon) is where you go to adjust anything, including making text bigger.</p>
+    </div>
+
+    <h3>Sending a text message</h3>
+    <ol>
+      <li>Open the Messages app (a speech bubble icon).</li>
+      <li>Tap the icon to start a new message (often a pencil or a <strong>+</strong>).</li>
+      <li>Type the person's name — if they're in your contacts, it will find them automatically.</li>
+      <li>Tap the text box, type your message, and tap the arrow or <strong>Send</strong> button.</li>
+    </ol>
+
+    <h3>Taking a photo</h3>
+    <ol>
+      <li>Open the Camera app.</li>
+      <li>Point your phone at what you want to photograph.</li>
+      <li>Tap the large round button on the screen to take the picture.</li>
+      <li>Your new photo is automatically saved to the Photos app (Android) or Photos app (iPhone).</li>
+    </ol>
+
+    <h3>Making text and icons bigger (Android)</h3>
+    <ol>
+      <li>Open the <strong>Settings</strong> app (gray gear icon).</li>
+      <li>Tap <strong>Display</strong> (sometimes called "Display & Brightness").</li>
+      <li>Look for <strong>Font size</strong> or <strong>Display size</strong> and slide it larger.</li>
+    </ol>
+
+    <div class="tip"><strong>Tip:</strong> If your phone screen ever seems "frozen," try pressing and holding the side button for about 10 seconds to restart it. This solves more problems than almost anything else.</div>
+
+    <a class="back-to-top" href="#top">&uarr; Back to lesson list</a>
+  </section>
+
+  <!-- LESSON 7 -->
+  <section class="lesson" id="lesson-7">
+    <p class="lesson-eyebrow">Lesson 7</p>
+    <h2>Keeping your photos and files safe</h2>
+    <p>A "backup" simply means having a second copy of something important, stored somewhere separate from your device, so you never lose it if your phone or computer breaks.</p>
+
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/djqQ4S3GdcE" title="How to Backup Photos in Google Account" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="video-caption">A short, clear walkthrough of backing up your photos with a Google account.</p>
+
+    <h3>Backing up photos on a phone</h3>
+    <div class="device-block">
+      <h4>Android</h4>
+      <ol style="margin:0;">
+        <li>Open the Google Photos app.</li>
+        <li>Tap your profile picture in the top-right corner.</li>
+        <li>Tap <strong>Photos settings</strong>, then <strong>Back up</strong>, and turn it on.</li>
+      </ol>
+    </div>
+    <div class="device-block">
+      <h4>iPhone</h4>
+      <ol style="margin:0;">
+        <li>Go to Settings, then tap your name at the top.</li>
+        <li>Tap <strong>iCloud</strong>, then <strong>Photos</strong>.</li>
+        <li>Turn on <strong>iCloud Photos</strong>. Your photos will now automatically save online too.</li>
+      </ol>
+    </div>
+
+    <h3>Backing up files on a computer</h3>
+    <p>Most computers offer a simple built-in option:</p>
+    <ul>
+      <li><strong>Windows:</strong> Look for "OneDrive" in your Start menu — files saved there are automatically backed up online.</li>
+      <li><strong>Mac:</strong> Go to System Settings, then your Apple ID, then <strong>iCloud</strong>, and turn on <strong>iCloud Drive</strong>.</li>
+    </ul>
+
+    <div class="tip"><strong>Tip:</strong> Once backup is turned on, you don't need to do anything else — it happens automatically in the background from then on.</div>
+
+    <a class="back-to-top" href="#top">&uarr; Back to lesson list</a>
+  </section>
+
+  <!-- LESSON 8 -->
+  <section class="lesson" id="lesson-8">
+    <p class="lesson-eyebrow">Lesson 8</p>
+    <h2>Getting help when something goes wrong</h2>
+    <p>Every computer user, no matter how experienced, runs into problems. Knowing how to ask for help calmly and safely is its own skill.</p>
+
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/49NNYPDMi2Q" title="Easy Computer Tips for Beginners Over 50" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p class="video-caption">Simple, practical tips for feeling more confident when something doesn't work.</p>
+
+    <h3>Try these first, in order</h3>
+    <ol>
+      <li><strong>Restart it.</strong> Turn the device off completely, wait 10 seconds, and turn it back on. This solves a surprising number of problems.</li>
+      <li><strong>Check your internet connection.</strong> If something won't load, make sure your Wi-Fi is turned on and connected.</li>
+      <li><strong>Search the exact problem.</strong> In your browser, type what's happening in plain words, such as "my email won't send attachments." Often someone else has had the exact same issue and posted the answer.</li>
+    </ol>
+
+    <h3>Who to ask for real help</h3>
+    <ul>
+      <li>A family member or friend who's comfortable with technology.</li>
+      <li>The official support website or phone number for the product — find it by searching "[company name] official support," not a number from a pop-up or text message.</li>
+      <li>Many libraries and senior centers offer free, in-person tech help sessions — worth checking what's available near you.</li>
+    </ul>
+
+    <div class="warning"><strong>Stay safe while getting help:</strong> Never give control of your screen or your passwords to someone who contacted <em>you</em> first claiming to be "tech support." Only accept help from someone you called, or someone you already know and trust in person.</div>
+
+    <p>That's the full course! Revisit any lesson anytime — there's no rush, and no test at the end.</p>
+
+    <a class="back-to-top" href="#top">&uarr; Back to lesson list</a>
+  </section>
+
+</div>
+
+<footer>
+  Questions about a lesson? Email <a href="mailto:trubyconsulting@gmail.com">trubyconsulting@gmail.com</a>
+</footer>
+
+</body>
+</html>
