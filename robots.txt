@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://trubyconsulting.github.io/confident-clicks/sitemap.xml

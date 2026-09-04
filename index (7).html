@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confident Clicks — Computer Basics for Seniors, Taught Kindly</title>
+<meta name="description" content="A friendly, self-paced online course that teaches seniors how to email, video call family, avoid scams, and browse safely. One payment of $19, no subscriptions, lifetime access.">
+<meta name="keywords" content="computer classes for seniors, learn computer basics, technology for older adults, senior technology course, avoid online scams, video call grandkids">
+<meta property="og:title" content="Confident Clicks — Take Control of Technology with Confidence">
+<meta property="og:description" content="Easy step-by-step computer lessons for seniors. Just $19, one time, lifetime access.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://trubyconsulting.github.io/confident-clicks/share-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://trubyconsulting.github.io/confident-clicks/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Caveat:wght@600&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Confident Clicks: Computer Basics for Seniors",
+  "description": "A friendly, self-paced online course teaching seniors email, video calling, safe browsing, and scam awareness.",
+  "provider": { "@type": "Organization", "name": "Confident Clicks" },
+  "offers": { "@type": "Offer", "price": "19", "priceCurrency": "USD" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is it safe to pay online for this computer course for seniors?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Payment is handled entirely by PayPal, a company used by millions of people every day. Confident Clicks never sees or stores your card or bank details." }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I get stuck on a lesson?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Every lesson is written in plain language with no jargon. If you're still stuck, you can email the Confident Clicks team directly for help." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a fast computer or a lot of tech skill to take this course?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. This course is built for complete beginners. If you can open a web browser, you're ready to start." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Confident Clicks a subscription?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. You pay once and keep lifetime access. There is nothing else to buy." }
+    }
+  ]
+}
+</script>
+<style>
+  :root{
+    --navy: #16324F;
+    --navy-deep: #0F2438;
+    --green: #5CB33C;
+    --green-dark: #47922B;
+    --paper: #FFFFFF;
+    --paper-tint: #F3F8F1;
+    --ink: #16324F;
+    --ink-soft: #4B5F70;
+    --line: #DCE6DE;
+    --measure: 700px;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family:'Public Sans', sans-serif;
+    font-size: 19px;
+    line-height: 1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:700; color:var(--navy); line-height:1.15; margin:0; }
+  a{ color: var(--navy); }
+  .wrap{ max-width: var(--measure); margin:0 auto; padding:0 26px; }
+
+  /* Header / logo mark */
+  header.site{ padding: 24px 0; }
+  header.site .wrap{ display:flex; align-items:center; justify-content:space-between; max-width: 860px; }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand svg{ width:38px; height:38px; flex-shrink:0; }
+  .brand-text{ font-family:'Fraunces', serif; font-weight:700; font-size:22px; color:var(--navy); }
+  .brand-text span{ color:var(--green-dark); }
+  nav.site a{ margin-left:20px; text-decoration:none; color:var(--ink-soft); font-weight:600; font-size:16.5px; }
+  nav.site a:hover{ color:var(--navy); }
+
+  /* Hero */
+  section.hero{ padding: 10px 0 46px; position:relative; }
+  .stamp{
+    position:absolute;
+    top: 0px;
+    right: 0px;
+    width: 128px;
+  }
+  .tagline{ color: var(--green-dark); font-weight:700; font-size:17px; margin-bottom:10px; }
+  .hero h1{ font-size: 42px; max-width: 12ch; margin-bottom: 16px; }
+  .hero p.lead{ font-size:20px; color:var(--ink-soft); max-width: 46ch; margin: 0 0 26px; }
+
+  .btn{
+    display:inline-block;
+    background: var(--green);
+    color: var(--navy-deep);
+    font-weight:800;
+    font-size: 19px;
+    padding: 16px 30px;
+    border-radius: 10px;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+  }
+  .btn:hover{ background: var(--green-dark); color:#fff; }
+  .btn:focus-visible{ outline: 3px solid var(--navy); outline-offset:3px; }
+  .reassure{ margin-top:14px; font-size:15px; color:var(--ink-soft); }
+
+  /* Feature list — matches the ad's icon-circle rows */
+  .features{ list-style:none; margin: 34px 0 0; padding:0; display:flex; flex-direction:column; gap:20px; max-width: 480px; }
+  .features li{ display:flex; gap:16px; align-items:flex-start; }
+  .feat-icon{
+    width:46px; height:46px; border-radius:50%;
+    background: var(--green);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .feat-icon svg{ width:24px; height:24px; stroke:#fff; fill:none; stroke-width:2; }
+  .features strong{ display:block; color:var(--navy); font-size:17.5px; }
+  .features span{ color:var(--ink-soft); font-size:16px; }
+
+  section{ padding: 44px 0; }
+  section.tint{ background: var(--paper-tint); }
+  section h2{ font-size: 29px; margin-bottom: 24px; }
+
+  /* Lessons */
+  .lesson-list{ list-style:none; margin:0; padding:0; }
+  .lesson-list li{
+    display:flex; align-items:baseline; gap:14px;
+    padding: 14px 0; border-bottom: 1px solid var(--line);
+  }
+  .lesson-list li:first-child{ border-top: 1px solid var(--line); }
+  .lesson-num{ font-family:'Fraunces', serif; color:var(--green-dark); font-weight:700; width:24px; flex-shrink:0; }
+  .lesson-title{ font-weight:700; margin:0; color:var(--navy); }
+  .lesson-desc{ color:var(--ink-soft); font-size:16.5px; margin:2px 0 0; }
+
+  /* Testimonial */
+  .postcard-wrap{ display:flex; justify-content:center; }
+  .postcard{
+    background:#fff; border:1px solid var(--line); border-radius:14px;
+    padding: 26px 30px; max-width: 500px;
+    box-shadow: 0 4px 14px rgba(22,50,79,0.08);
+  }
+  .postcard-inner{ display:flex; gap:18px; align-items:flex-start; }
+  .postcard-avatar{ width:56px; height:56px; flex-shrink:0; border-radius:50%; background:var(--paper-tint); border:1.5px solid var(--green); }
+  .postcard blockquote{ font-family:'Fraunces', serif; font-size:21px; font-weight:600; margin:0 0 8px; color:var(--navy); }
+  .postcard cite{ font-style:normal; color:var(--ink-soft); font-size:15.5px; }
+
+  /* FAQ */
+  .faq-item{ padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .faq-item:first-child{ padding-top:0; }
+  .faq-item h3{ font-size:19px; margin-bottom:6px; }
+  .faq-item p{ margin:0; color:var(--ink-soft); }
+
+  /* Referral seal */
+  .seal{ background: var(--paper-tint); border: 2px solid var(--green); border-radius:14px; padding: 26px 28px; }
+  .seal h2{ margin-bottom: 10px; }
+  .seal p{ margin:0 0 6px; }
+  .seal .fine{ color:var(--ink-soft); font-size:15.5px; margin-bottom:0; }
+
+  .cta-final{ padding: 50px 0 10px; }
+  .cta-final h2{ font-size: 30px; margin-bottom: 10px; }
+  .cta-final p.lede{ color:var(--ink-soft); margin-bottom: 24px; }
+
+  /* Bottom banner strip, matching the ad */
+  .banner{
+    background: var(--navy);
+    color: #fff;
+    padding: 34px 0;
+    margin-top: 40px;
+  }
+  .banner .wrap{
+    max-width: 900px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .banner-item{ display:flex; align-items:center; gap:12px; }
+  .banner-item svg{ width:30px; height:30px; stroke:#fff; fill:none; stroke-width:2; flex-shrink:0; }
+  .banner-item p{ margin:0; font-size:15.5px; line-height:1.4; }
+  .banner-item strong{ display:block; font-size:16px; }
+  .banner .btn{ font-size:17px; padding:13px 24px; }
+
+  footer{ padding: 30px 0 54px; color:var(--ink-soft); font-size:15px; }
+  footer a{ color:var(--ink-soft); }
+
+  @media (max-width:640px){
+    body{ font-size:17px; }
+    .wrap{ padding: 0 20px; }
+    header.site .wrap{ flex-direction:column; align-items:flex-start; gap:14px; }
+    nav.site{ display:flex; flex-wrap:wrap; }
+    nav.site a{ margin-left:0; margin-right:16px; }
+
+    section.hero{ padding-top: 20px; }
+    .stamp{ position:static; display:block; margin: 0 auto 18px; width: 100px; }
+    .hero h1{ font-size:30px; max-width: none; }
+    .hero p.lead{ font-size:18px; }
+    .btn{ width:100%; text-align:center; font-size:18px; padding:16px 22px; }
+    .features{ max-width:none; }
+
+    section{ padding: 34px 0; }
+    section h2{ font-size:24px; }
+
+    .postcard{ padding: 20px 22px; }
+    .postcard-inner{ flex-direction:column; align-items:flex-start; }
+    .postcard blockquote{ font-size:19px; }
+
+    .banner{ padding: 28px 0; }
+    .banner .wrap{ flex-direction:column; align-items:flex-start; text-align:left; }
+    .banner .btn{ width:100%; text-align:center; }
+
+    .seal{ padding: 20px 22px; }
+  }
+
+  @media (max-width:400px){
+    .hero h1{ font-size:26px; }
+    .stamp{ width:90px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M8 26c0-11 8-19 18-19h1c10 0 18 8 18 19v10c0 9-8 16-18.5 16S8 45 8 36V26z" fill="#16324F"/>
+        <rect x="25" y="9" width="6" height="16" rx="3" fill="#F3F8F1"/>
+        <line x1="18" y1="2" x2="21" y2="9" stroke="#5CB33C" stroke-width="2.4" stroke-linecap="round"/>
+        <line x1="28" y1="0" x2="28" y2="8" stroke="#5CB33C" stroke-width="2.4" stroke-linecap="round"/>
+        <line x1="38" y1="2" x2="35" y2="9" stroke="#5CB33C" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      <div class="brand-text">Confident <span>Clicks</span></div>
+    </div>
+    <nav class="site">
+      <a href="#lessons">What's Inside</a>
+      <a href="#faq">Questions</a>
+      <a href="#buy">Get Started</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <svg class="stamp" viewBox="0 0 130 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Badge: just nineteen dollars, one time, lifetime access, 7 day money back guarantee">
+      <circle cx="63" cy="55" r="52" fill="#16324F"/>
+      <text x="63" y="34" text-anchor="middle" font-family="Public Sans, sans-serif" font-weight="700" font-size="12" fill="#fff">JUST</text>
+      <text x="63" y="62" text-anchor="middle" font-family="Fraunces, serif" font-weight="700" font-size="30" fill="#fff">$19</text>
+      <text x="63" y="80" text-anchor="middle" font-family="Public Sans, sans-serif" font-weight="700" font-size="11" fill="#fff">ONE TIME</text>
+      <polygon points="40,103 86,103 86,128 63,118 40,128" fill="#5CB33C"/>
+      <text x="63" y="113" text-anchor="middle" font-family="Public Sans, sans-serif" font-weight="700" font-size="8.5" fill="#16324F">7-DAY</text>
+      <text x="63" y="122" text-anchor="middle" font-family="Public Sans, sans-serif" font-weight="600" font-size="6.5" fill="#16324F">GUARANTEE</text>
+    </svg>
+
+    <p class="tagline">Technology Made Simple. You've Got This!</p>
+    <h1>Take Control of Technology with Confidence</h1>
+    <p class="lead">Easy, step-by-step lessons for seniors — go at your own pace, with no jargon and no judgment.</p>
+
+    <a href="#buy" class="btn">Get Started for $19</a>
+    <p class="reassure">Pay securely through PayPal. 7-day money-back guarantee, no questions asked.</p>
+
+    <ul class="features">
+      <li>
+        <span class="feat-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+        <div><strong>Learn at your own pace</strong><span>Short, simple lessons</span></div>
+      </li>
+      <li>
+        <span class="feat-icon"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
+        <div><strong>Stay safe online</strong><span>Avoid scams and protect what matters</span></div>
+      </li>
+      <li>
+        <span class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6"/><path d="M17 8a3 3 0 1 0 0-6"/><path d="M23 20c0-2.8-2-5-5-6"/></svg></span>
+        <div><strong>Connect with family</strong><span>Email, video calls &amp; sharing photos</span></div>
+      </li>
+      <li>
+        <span class="feat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2.5 2-2.5 3.5"/><circle cx="12" cy="17" r="0.6" fill="#fff" stroke="none"/></svg></span>
+        <div><strong>Get help when you need it</strong><span>Clear answers to common tech problems</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="lessons" class="tint">
+  <div class="wrap">
+    <h2>What's inside</h2>
+    <ol class="lesson-list">
+      <li><span class="lesson-num">1</span><div><p class="lesson-title">Getting comfortable with your mouse and keyboard</p><p class="lesson-desc">Clicking, scrolling, and typing without frustration.</p></div></li>
+      <li><span class="lesson-num">2</span><div><p class="lesson-title">Email made easy</p><p class="lesson-desc">Sending, reading, and organizing your messages.</p></div></li>
+      <li><span class="lesson-num">3</span><div><p class="lesson-title">Video calling your family</p><p class="lesson-desc">Set up Zoom, FaceTime, or WhatsApp to see your grandkids.</p></div></li>
+      <li><span class="lesson-num">4</span><div><p class="lesson-title">Spotting and avoiding online scams</p><p class="lesson-desc">The warning signs scammers use, and how to shut them down.</p></div></li>
+      <li><span class="lesson-num">5</span><div><p class="lesson-title">Safe, easy web browsing</p><p class="lesson-desc">Finding what you need and knowing which sites to trust.</p></div></li>
+      <li><span class="lesson-num">6</span><div><p class="lesson-title">Your smartphone or tablet, explained</p><p class="lesson-desc">Apps, texting, and photos, demystified.</p></div></li>
+      <li><span class="lesson-num">7</span><div><p class="lesson-title">Keeping your photos and files safe</p><p class="lesson-desc">Simple backups so you never lose a memory.</p></div></li>
+      <li><span class="lesson-num">8</span><div><p class="lesson-title">Getting help when something goes wrong</p><p class="lesson-desc">Who to call and how to ask with confidence.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="postcard-wrap">
+      <div class="postcard">
+        <div class="postcard-inner">
+          <svg class="postcard-avatar" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustrated portrait of a smiling older woman">
+            <circle cx="28" cy="28" r="27" fill="#F3F8F1"/>
+            <path d="M14 40c2-8 8-12 14-12s12 4 14 12" fill="none" stroke="#5CB33C" stroke-width="1.6"/>
+            <circle cx="28" cy="24" r="10" fill="none" stroke="#5CB33C" stroke-width="1.6"/>
+            <path d="M18 20c0-6 4-10 10-10s10 4 10 10" fill="none" stroke="#5CB33C" stroke-width="1.6"/>
+            <path d="M23 25c0.8 1.6 2 2.4 3 2.4" fill="none" stroke="#5CB33C" stroke-width="1.4" stroke-linecap="round"/>
+            <circle cx="24" cy="23" r="1" fill="#5CB33C"/>
+            <circle cx="32" cy="23" r="1" fill="#5CB33C"/>
+          </svg>
+          <div>
+            <blockquote>"I finally video call my grandson every Sunday without asking my neighbor for help."</blockquote>
+            <cite>— Early course tester</cite>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="tint">
+  <div class="wrap">
+    <h2>Common questions</h2>
+    <div class="faq-item">
+      <h3>Is it safe to pay online for this?</h3>
+      <p>Yes. Payment is handled entirely by PayPal, a company used by millions of people every day. We never see or store your card or bank details.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if I get stuck on a lesson?</h3>
+      <p>Every lesson is written in plain language with no jargon. If you're still stuck, you can email us directly and we'll walk you through it.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need a fast computer or a lot of tech skill?</h3>
+      <p>No. This course is built for complete beginners. If you can open a web browser, you're ready to start.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is this a subscription?</h3>
+      <p>No. You pay once and keep access for as long as you like. There is nothing else to buy.</p>
+    </div>
+  </div>
+</section>
+
+<section id="refer">
+  <div class="wrap">
+    <div class="seal">
+      <h2>Know someone who'd love this?</h2>
+      <p>Once you're a member, you'll get your own personal link to share. For every friend who signs up using your link, you'll receive <strong>$5</strong>.</p>
+      <p class="fine">Your link and instructions are on the welcome page right after you sign up.</p>
+    </div>
+  </div>
+</section>
+
+<section id="buy" class="cta-final">
+  <div class="wrap">
+    <h2>Ready to feel confident at your computer?</h2>
+    <p class="lede">One payment of $19. Lifetime access. 7-day money-back guarantee.</p>
+
+    <a href="https://www.paypal.com/ncp/payment/ULJ8CUBFJZLWS" class="btn" id="paypal-link">Get Started for $19</a>
+    <p class="reassure">You'll be taken to PayPal to complete your payment securely.</p>
+    <p class="reassure" id="ref-reminder" style="display:none;"></p>
+  </div>
+</section>
+
+<div class="banner">
+  <div class="wrap">
+    <div class="banner-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+      <p><strong>Build skills.</strong>Gain confidence.<br>Enjoy technology!</p>
+    </div>
+    <div class="banner-item">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M2 20h20"/></svg>
+      <p><strong>For Computers,</strong>Smartphones &amp; Tablets</p>
+    </div>
+    <a href="https://www.paypal.com/ncp/payment/ULJ8CUBFJZLWS" class="btn">Start Today! You've Got This.</a>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Questions before you sign up? Email <a href="mailto:trubyconsulting@gmail.com">trubyconsulting@gmail.com</a></p>
+    <p>&copy; 2026 Confident Clicks. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var params = new URLSearchParams(window.location.search);
+    var ref = params.get('ref');
+    if (ref) {
+      var reminder = document.getElementById('ref-reminder');
+      if (reminder) {
+        reminder.textContent = 'Referred by code ' + ref + '? After you pay, please email trubyconsulting@gmail.com with this code so your friend gets credited.';
+        reminder.style.display = 'block';
+      }
+    }
+  })();
+</script>
+
+</body>
+</html>
