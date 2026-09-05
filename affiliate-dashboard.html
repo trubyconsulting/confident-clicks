@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affiliate Dashboard — Confident Clicks</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16324F; --navy-deep:#0F2438; --green:#5CB33C; --green-dark:#47922B;
+    --paper:#FFFFFF; --paper-tint:#F3F8F1; --ink:#16324F; --ink-soft:#4B5F70; --line:#DCE6DE;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:'Public Sans',sans-serif; font-size:18px; line-height:1.6; }
+  h1,h2{ font-family:'Fraunces',serif; font-weight:700; color:var(--navy); margin:0; }
+  .wrap{ max-width:640px; margin:0 auto; padding:0 24px; }
+  header{ padding:24px 0; }
+  .brand{ font-family:'Fraunces',serif; font-weight:700; font-size:21px; color:var(--navy); }
+  .brand span{ color:var(--green-dark); }
+
+  .intro{ padding: 20px 0 10px; }
+  .intro h1{ font-size:28px; margin-bottom:10px; }
+  .intro p{ color:var(--ink-soft); margin:0; }
+
+  .lookup{ display:flex; gap:10px; margin: 24px 0; flex-wrap:wrap; }
+  .lookup input{ flex:1; min-width:200px; padding:12px 14px; font-size:16px; border-radius:8px; border:1px solid var(--line); }
+  .lookup button{ background:var(--green); color:var(--navy-deep); font-weight:800; padding:12px 22px; border:none; border-radius:10px; cursor:pointer; }
+  .lookup button:hover{ background:var(--green-dark); color:#fff; }
+
+  .stats{ display:none; gap:16px; margin: 10px 0 30px; }
+  .stat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .stat-card{ background:var(--paper-tint); border:1px solid var(--line); border-radius:12px; padding:20px; text-align:center; }
+  .stat-num{ font-family:'Fraunces',serif; font-weight:700; font-size:32px; color:var(--navy); }
+  .stat-label{ color:var(--ink-soft); font-size:15px; margin-top:4px; }
+
+  .error{ color:#A23425; font-weight:600; display:none; margin-top:10px; }
+  footer{ padding:30px 0 50px; color:var(--ink-soft); font-size:15px; }
+  footer a{ color:var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<header><div class="wrap brand">Confident <span>Clicks</span></div></header>
+
+<div class="wrap">
+  <div class="intro">
+    <h1>Affiliate Dashboard</h1>
+    <p>Enter your affiliate code below to see your clicks, conversions, and earnings.</p>
+  </div>
+
+  <div class="lookup">
+    <input type="text" id="code-input" placeholder="Your affiliate code, e.g. Jane4821">
+    <button id="lookup-btn">View Stats</button>
+  </div>
+  <p class="error" id="error-msg">Couldn't find that code, or something went wrong. Double-check it and try again.</p>
+
+  <div class="stat-grid" id="stats">
+    <div class="stat-card"><div class="stat-num" id="clicks-num">–</div><div class="stat-label">Clicks</div></div>
+    <div class="stat-card"><div class="stat-num" id="conversions-num">–</div><div class="stat-label">Sign-ups</div></div>
+    <div class="stat-card"><div class="stat-num" id="earnings-num">–</div><div class="stat-label">Earned</div></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">Questions about a payout? Email <a href="mailto:trubyconsulting@gmail.com">trubyconsulting@gmail.com</a></div>
+</footer>
+
+<script src="affiliate.js"></script>
+<script>
+  var input = document.getElementById('code-input');
+  var stored = localStorage.getItem('cc_my_aff_code');
+  if (stored) input.value = stored;
+
+  document.getElementById('lookup-btn').addEventListener('click', function(){
+    var code = input.value.trim();
+    var errorMsg = document.getElementById('error-msg');
+    var stats = document.getElementById('stats');
+    errorMsg.style.display = 'none';
+    stats.style.display = 'none';
+
+    if (!code) return;
+    if (!AFF_ENDPOINT || AFF_ENDPOINT.indexOf('PASTE_') === 0) {
+      errorMsg.textContent = 'The affiliate system isn\'t connected yet. See AFFILIATE_SETUP.md.';
+      errorMsg.style.display = 'block';
+      return;
+    }
+
+    localStorage.setItem('cc_my_aff_code', code);
+
+    fetch(AFF_ENDPOINT + '?code=' + encodeURIComponent(code))
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        if (data.error) throw new Error(data.error);
+        document.getElementById('clicks-num').textContent = data.clicks;
+        document.getElementById('conversions-num').textContent = data.conversions;
+        document.getElementById('earnings-num').textContent = '$' + data.earnings;
+        stats.style.display = 'grid';
+      })
+      .catch(function(){
+        errorMsg.style.display = 'block';
+      });
+  });
+</script>
+
+</body>
+</html>

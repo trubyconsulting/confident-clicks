@@ -4,25 +4,22 @@ Everything below is written so you can do it tonight, step by step, with no codi
 
 ## 1. Connect PayPal so payments go to your email
 
-1. Log into paypal.com with the account tied to **trubyconsulting@gmail.com** (create a free Business account if you don't have one — Personal accounts can't create these buttons).
-2. Go to **Pay & Get Paid → PayPal Buttons** (or search "Create a button" in PayPal's help/search bar — PayPal moves this occasionally).
-3. Choose **"Buy Now"** button type.
-4. Item name: `Confident Clicks: Computer Basics for Seniors`
-5. Price: `19.00 USD`
-6. Under "Track inventory or profit" — skip, not needed.
-7. Under **Advanced Options / Customize your button**, set:
-   - **Return page**: the web address of your `welcome.html` once it's hosted (see step 2 below).
-   - Take buyer to a return page automatically: **Yes**
-8. Save the button. PayPal will give you a **hosted_button_id** (a string of letters/numbers).
-9. Open `index.html` in a text editor, find this line near the bottom:
+This site uses PayPal's newer **Payment Link** feature (the kind that gives you a link like `paypal.com/ncp/payment/...`), which is simpler than the old button code.
+
+1. Log into paypal.com with the account tied to **trubyconsulting@gmail.com** (create a free Business account if you don't have one).
+2. Search PayPal's help/search bar for "Payment Links" or go to **Pay & Get Paid → Payment Links**.
+3. Create a link with:
+   - Item name: `Confident Clicks: Computer Basics for Seniors`
+   - Price: `19.00 USD`
+4. Turn on **Auto Return** in the link's settings, and set the return address to your `welcome.html` page once it's hosted (see step 2 below) — e.g. `https://trubyconsulting.github.io/confident-clicks/welcome.html`. This is configured entirely inside PayPal's dashboard now, not in the website code.
+5. Save it. PayPal gives you a link like `https://www.paypal.com/ncp/payment/XXXXXXXXXXX`.
+6. That link is already placed in `index.html` on the "Get Started for $19" button. If you ever create a new payment link, just replace the URL in this line:
    ```
-   <input type="hidden" name="hosted_button_id" value="REPLACE_WITH_YOUR_PAYPAL_BUTTON_ID">
+   <a href="https://www.paypal.com/ncp/payment/ULJ8CUBFJZLWS" class="btn" id="paypal-link">Get Started for $19</a>
    ```
-   Replace `REPLACE_WITH_YOUR_PAYPAL_BUTTON_ID` with your real button ID.
-10. Also replace this line (a few lines above) with your real welcome page address once you know it:
-    ```
-    <input type="hidden" name="return" value="https://example.com/welcome.html">
-    ```
+
+### About the referral tracking with this link type
+The older PayPal button code could carry a hidden referral code invisibly into your PayPal transaction. This newer Payment Link format doesn't support that — so referred buyers now see a reminder on the page asking them to email you the referral code after paying, so you can credit their friend. It's one extra manual step, and worth mentioning to buyers if you promote the referral program actively.
 
 ## 2. Host it for free (GitHub Pages)
 

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become an Affiliate — Confident Clicks</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #16324F; --navy-deep:#0F2438; --green:#5CB33C; --green-dark:#47922B;
+    --paper:#FFFFFF; --paper-tint:#F3F8F1; --ink:#16324F; --ink-soft:#4B5F70; --line:#DCE6DE;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--paper); color:var(--ink); font-family:'Public Sans',sans-serif; font-size:18px; line-height:1.6; }
+  h1,h2{ font-family:'Fraunces',serif; font-weight:700; color:var(--navy); margin:0; }
+  .wrap{ max-width:640px; margin:0 auto; padding:0 24px; }
+  header{ padding:24px 0; }
+  .brand{ font-family:'Fraunces',serif; font-weight:700; font-size:21px; color:var(--navy); }
+  .brand span{ color:var(--green-dark); }
+
+  .intro{ padding: 20px 0 10px; }
+  .intro h1{ font-size:30px; margin-bottom:10px; }
+  .intro p{ color:var(--ink-soft); margin:0; }
+
+  form{ background:var(--paper-tint); border:1px solid var(--line); border-radius:14px; padding:26px; margin:26px 0; }
+  label{ display:block; font-weight:700; margin-bottom:6px; }
+  input[type=text], input[type=email]{
+    width:100%; padding:12px 14px; font-size:16px; border-radius:8px;
+    border:1px solid var(--line); margin-bottom:18px;
+  }
+  button{
+    background:var(--green); color:var(--navy-deep); font-weight:800; font-size:17px;
+    padding:14px 26px; border:none; border-radius:10px; cursor:pointer;
+  }
+  button:hover{ background:var(--green-dark); color:#fff; }
+  button:disabled{ opacity:0.6; cursor:not-allowed; }
+
+  #result{ display:none; background:#fff; border:2px solid var(--green); border-radius:14px; padding:26px; }
+  #result h2{ font-size:22px; margin-bottom:12px; }
+  .link-row{ display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+  .link-row input{ flex:1; min-width:220px; font-family:monospace; font-size:15px; padding:10px 12px; border-radius:8px; border:1px solid var(--line); }
+  .link-row button{ padding:10px 18px; font-size:15px; }
+  .copied{ color:var(--green-dark); font-weight:600; display:none; margin-top:8px; }
+
+  .error{ color:#A23425; font-weight:600; display:none; margin-top:10px; }
+
+  footer{ padding:30px 0 50px; color:var(--ink-soft); font-size:15px; }
+  footer a{ color:var(--ink-soft); }
+  .note{ font-size:15px; color:var(--ink-soft); margin-top:10px; }
+</style>
+</head>
+<body>
+
+<header><div class="wrap brand">Confident <span>Clicks</span></div></header>
+
+<div class="wrap">
+  <div class="intro">
+    <h1>Become an Affiliate</h1>
+    <p>Earn $5 for every friend who signs up for Confident Clicks through your link. Sign up below to get your personal link and ready-made banners.</p>
+  </div>
+
+  <form id="signup-form">
+    <label for="name">Your name</label>
+    <input type="text" id="name" required placeholder="e.g. Jane Smith">
+    <label for="email">Your email (for payouts)</label>
+    <input type="email" id="email" required placeholder="you@example.com">
+    <button type="submit" id="submit-btn">Get My Affiliate Link</button>
+    <p class="error" id="error-msg">Something went wrong. Please try again in a moment.</p>
+  </form>
+
+  <div id="result">
+    <h2>You're in! Here's your link:</h2>
+    <div class="link-row">
+      <input type="text" id="aff-link" readonly>
+      <button type="button" id="copy-link">Copy</button>
+    </div>
+    <p class="copied" id="copied-msg">Copied!</p>
+
+    <h2 style="margin-top:24px;">Grab a banner to share</h2>
+    <p class="note">Right-click (or press and hold on mobile) any banner below to save the image, then link it to your personal link above when you post it.</p>
+    <div id="banners" style="display:flex; flex-direction:column; gap:16px; margin-top:14px;"></div>
+
+    <p class="note" style="margin-top:22px;">
+      Want to check your stats anytime? Visit the
+      <a href="affiliate-dashboard.html" id="dashboard-link">affiliate dashboard</a> and enter your code: <strong id="code-display"></strong>
+    </p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">Questions? Email <a href="mailto:trubyconsulting@gmail.com">trubyconsulting@gmail.com</a></div>
+</footer>
+
+<script src="affiliate.js"></script>
+<script>
+  var form = document.getElementById('signup-form');
+  var submitBtn = document.getElementById('submit-btn');
+  var errorMsg = document.getElementById('error-msg');
+  var result = document.getElementById('result');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errorMsg.style.display = 'none';
+
+    if (!AFF_ENDPOINT || AFF_ENDPOINT.indexOf('PASTE_') === 0) {
+      errorMsg.textContent = 'The affiliate system isn\'t connected yet. See AFFILIATE_SETUP.md.';
+      errorMsg.style.display = 'block';
+      return;
+    }
+
+    var name = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Setting up your link...';
+
+    fetch(AFF_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ type: 'signup', name: name, email: email })
+    })
+    .then(function(res){ return res.json(); })
+    .then(function(data){
+      if (data.code) {
+        showResult(data.code);
+      } else {
+        throw new Error('No code returned');
+      }
+    })
+    .catch(function(){
+      errorMsg.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Get My Affiliate Link';
+    });
+  });
+
+  function showResult(code) {
+    form.style.display = 'none';
+    result.style.display = 'block';
+
+    var base = window.location.origin + window.location.pathname.replace('affiliate-signup.html', 'index.html');
+    var link = base + '?aff=' + code;
+    document.getElementById('aff-link').value = link;
+    document.getElementById('code-display').textContent = code;
+
+    var sizes = [
+      { file: 'banner-728x90.png', w: 728, h: 90 },
+      { file: 'banner-300x250.png', w: 300, h: 250 }
+    ];
+    var container = document.getElementById('banners');
+    sizes.forEach(function(s){
+      var img = document.createElement('img');
+      img.src = s.file;
+      img.alt = 'Confident Clicks banner ' + s.w + 'x' + s.h;
+      img.style.maxWidth = '100%';
+      img.style.border = '1px solid #DCE6DE';
+      img.style.borderRadius = '8px';
+      container.appendChild(img);
+    });
+  }
+
+  document.getElementById('copy-link').addEventListener('click', function(){
+    var input = document.getElementById('aff-link');
+    input.select();
+    input.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(input.value).then(function(){
+      document.getElementById('copied-msg').style.display = 'block';
+    }).catch(function(){
+      document.execCommand('copy');
+      document.getElementById('copied-msg').style.display = 'block';
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -140,9 +140,68 @@
     color: var(--ink-soft);
   }
   footer{ padding: 20px 0 60px; color: var(--ink-soft); font-size:15px; text-align:center; }
+
+  /* Access lock screen */
+  #lock-screen{
+    max-width: 480px;
+    margin: 80px auto;
+    padding: 0 24px;
+    text-align: center;
+  }
+  #lock-screen .lock-card{
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 36px 30px;
+  }
+  #lock-screen h1{ font-size: 26px; margin: 0 0 12px; }
+  #lock-screen p{ color: var(--ink-soft); margin: 0 0 22px; }
+  #lock-screen input{
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    margin-bottom: 14px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  #lock-screen button{
+    width: 100%;
+    background: var(--teal);
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  #lock-screen button:hover{ background: var(--teal-dark); }
+  #lock-error{
+    color: #8A5A1E;
+    font-weight:600;
+    margin-top: 14px;
+    display: none;
+  }
+  #lesson-content{ display: none; }
 </style>
 </head>
 <body>
+
+<div id="lock-screen">
+  <div class="lock-card">
+    <h1>Members Only</h1>
+    <p>Enter your access code to view the lessons. You'll find this code on the welcome page you saw right after paying.</p>
+    <form id="unlock-form">
+      <input type="text" id="code-input" placeholder="Access code" autocomplete="off">
+      <button type="submit">Unlock Lessons</button>
+    </form>
+    <p id="lock-error">That code doesn't match. Please double check it and try again, or email trubyconsulting@gmail.com for help.</p>
+  </div>
+</div>
+
+<div id="lesson-content">
 
 <header>
   <div class="wrap">
@@ -567,6 +626,34 @@
 <footer>
   Questions about a lesson? Email <a href="mailto:trubyconsulting@gmail.com">trubyconsulting@gmail.com</a>
 </footer>
+
+</div>
+
+<script>
+  (function(){
+    var CODE = "CLICK2026"; // change this anytime — just update it here and in welcome.html
+
+    function showLessons(){
+      document.getElementById('lock-screen').style.display = 'none';
+      document.getElementById('lesson-content').style.display = 'block';
+    }
+
+    if (localStorage.getItem('cc_unlocked') === '1') {
+      showLessons();
+    } else {
+      document.getElementById('unlock-form').addEventListener('submit', function(e){
+        e.preventDefault();
+        var entered = document.getElementById('code-input').value.trim().toUpperCase();
+        if (entered === CODE) {
+          localStorage.setItem('cc_unlocked', '1');
+          showLessons();
+        } else {
+          document.getElementById('lock-error').style.display = 'block';
+        }
+      });
+    }
+  })();
+</script>
 
 </body>
 </html>
